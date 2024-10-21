@@ -3,12 +3,13 @@ package com.example.infinitelocus.service;
 import com.example.infinitelocus.model.Event;
 import com.example.infinitelocus.repository.EventRepository;
 import com.example.infinitelocus.repository.UserRepository;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@RestController
+@Service
 public class EventService {
     public EventRepository eventRepository;
     public UserRepository userRepository;
