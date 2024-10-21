@@ -16,14 +16,14 @@ import java.util.List;
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String title;
-    private String description;
-    private String location;
+    public int id;
+    public String title;
+    public String description;
+    public String location;
   //  private String date;
-    private LocalDateTime time;
-    private int maxRegistration;
-    private int currentRegistration=0;
+    public LocalDateTime time;
+    public int maxRegistration;
+    public int currentRegistration=0;
     public List<String> registeredUsers;
 
 }

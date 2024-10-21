@@ -11,8 +11,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String username;
-    private String password;
-    private boolean userOrAdmin=true;
+    public int id;
+    public String username;
+    public String password;
+    public boolean userOrAdmin=true;
 }
