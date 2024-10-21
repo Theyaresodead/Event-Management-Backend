@@ -1,7 +1,12 @@
 package com.example.infinitelocus.service;
 
+import com.example.infinitelocus.model.Event;
 import com.example.infinitelocus.repository.EventRepository;
 import com.example.infinitelocus.repository.UserRepository;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,4 +18,14 @@ public class UserService {
         this.eventRepository = eventRepository;
     }
 
+    public List<Event> findEventByUser(String username, int id, boolean userOrAdmin){
+
+        User user = userRepository.findUsersByName(username).orElse(null);
+        if(userOrAdmin){
+
+        }
+        else{
+
+        }
+    }
 }

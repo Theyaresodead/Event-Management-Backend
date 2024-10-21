@@ -16,8 +16,8 @@ import java.util.List;
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String title;
+    public int id;
+    public String title;
     private String description;
     private String location;
   //  private String date;
