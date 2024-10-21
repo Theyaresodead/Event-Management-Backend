@@ -2,7 +2,8 @@ package com.example.infinitelocus.controller;
 
 import com.example.infinitelocus.model.Event;
 import com.example.infinitelocus.service.EventService;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,18 +17,23 @@ public class EventController {
     }
 
     @GetMapping("/getAllEvents")
-    public List<Event> getAllEvents() {
-        return eventService.getAllEvents();
+    public ResponseEntity<List<Event>> getAllEvents() {
+        return new ResponseEntity<List<Event>>(eventService.getAllEvents(), HttpStatus.OK);
     }
 
 
-    @GetMapping("/createEvent")
-    public Event createEvent(@RequestBody Event event) {
-       return eventService.createEvent(event);
+    @PostMapping("/createEvent")
+    public ResponseEntity<Event> createEvent(@RequestBody Event event) {
+
+       return new ResponseEntity<Event>(event, HttpStatus.CREATED);
+              // eventService.createEvent(event);
     }
 
-    public List<Event> getUpcomingEvents(@RequestParam Event event) {
-        return eventService.getUpcomingEvents(event.time);
+    @GetMapping("/getUpcomingEvents")
+    public ResponseEntity<List<Event>> getUpcomingEvents(@RequestParam Event event) {
+        return new ResponseEntity<List<Event>>(eventService.getUpcomingEvents(event.time),
+                HttpStatus.OK);
     }
+
 
 }
