@@ -1,0 +1,25 @@
+package com.example.infinitelocus.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+
+@Document(collection = "events" )
+@Entity
+public class Event {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String title;
+    private String description;
+    private String location;
+    private String date;
+    private LocalDateTime time;
+    private int maxRegistration;
+    private int currentRegistration=0;
+
+}
