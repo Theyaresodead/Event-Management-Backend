@@ -21,7 +21,7 @@ public class UserService {
 
     public List<Event> findEventByUser(String username, int id, boolean userOrAdmin){
 
-        User user = userRepository.findUsersByName(username);
+        User user = userRepository.findUsersByName(username, userOrAdmin);
        
         if (user == null) {
            
