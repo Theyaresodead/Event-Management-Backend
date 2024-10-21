@@ -3,12 +3,13 @@ package com.example.infinitelocus.service;
 import com.example.infinitelocus.model.Event;
 import com.example.infinitelocus.repository.EventRepository;
 import com.example.infinitelocus.repository.UserRepository;
-
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 @Service
 public class EventService {
     public EventRepository eventRepository;
@@ -30,16 +31,14 @@ public class EventService {
     }
     public Event saveEvent(String title
             ,String username,String location,LocalDateTime date){
-        List<Event> event= eventRepository.findEventsByTitle(title);
-        if(event.size()==0) {
+        Event event= eventRepository.findEventById(id);
+        if(event==null) {
             System.out.print("No events found");
+            return null;
         }
-        else{
-            eventRepository.registerForEvent(title,username,location,date);
-
-        }
-
-        return event;
+            event.registeredUsers.add(username);
+            userRepository.registerUser(username,title);
+            return eventRepository.save(event);
 
     }
 }
