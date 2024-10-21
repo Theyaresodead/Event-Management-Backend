@@ -10,16 +10,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-@Service
+
 public class EventService {
     public EventRepository eventRepository;
     public UserRepository userRepository;
     public EventService(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
     }
-    public UserRepository userRepository() {
-
-    }
+   
     public Event createEvent(Event event){
         return eventRepository.save(event);
     }
@@ -29,7 +27,7 @@ public class EventService {
     public List<Event> getUpcomingEvents(LocalDateTime date){
         return eventRepository.findByDate(date);
     }
-    public Event saveEvent(String title
+    public Event saveEvent(String title, int id
             ,String username,String location,LocalDateTime date){
         Event event= eventRepository.findEventById(id);
         if(event==null) {

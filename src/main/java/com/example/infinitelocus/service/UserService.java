@@ -1,6 +1,7 @@
 package com.example.infinitelocus.service;
 
 import com.example.infinitelocus.model.Event;
+import com.example.infinitelocus.model.User;
 import com.example.infinitelocus.repository.EventRepository;
 import com.example.infinitelocus.repository.UserRepository;
 
@@ -20,12 +21,19 @@ public class UserService {
 
     public List<Event> findEventByUser(String username, int id, boolean userOrAdmin){
 
-        User user = userRepository.findUsersByName(username).orElse(null);
-        if(userOrAdmin){
-
+        User user = userRepository.findUsersByName(username);
+       
+        if (user == null) {
+           
+            throw new RuntimeException("User not found");
         }
-        else{
 
+        if (userOrAdmin) {
+           
+            return eventRepository.findEventsByUserId(id);
+        } else {
+           
+            return eventRepository.findEventsByUserId(id);
         }
     }
 }
