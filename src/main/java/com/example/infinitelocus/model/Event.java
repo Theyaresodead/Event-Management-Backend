@@ -24,6 +24,6 @@ public class Event {
     private LocalDateTime time;
     private int maxRegistration;
     private int currentRegistration=0;
-    private List<String> registeredUsers;
+    public List<String> registeredUsers;
 
 }

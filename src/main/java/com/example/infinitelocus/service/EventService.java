@@ -27,17 +27,13 @@ public class EventService {
     public Event saveEvent(String title,int id
             ,String username,String location,LocalDateTime date){
         Event event= eventRepository.findEventById(id);
-        if(event) {
+        if(event==null) {
             System.out.print("No events found");
+            return null;
         }
-        else{
-
-            event.add(new Event(title,username,));
+            event.registeredUsers.add(username);
             userRepository.registerUser(username,title);
-
-        }
-
-        return event;
+            return eventRepository.save(event);
 
     }
 }
