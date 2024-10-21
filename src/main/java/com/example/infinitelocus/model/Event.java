@@ -11,8 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Getter
-@Setter
 @Document(collection = "events" )
 @Entity
 public class Event {
@@ -27,4 +25,5 @@ public class Event {
     private int maxRegistration;
     private int currentRegistration=0;
     private List<String> registeredUsers;
+
 }

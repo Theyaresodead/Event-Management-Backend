@@ -15,9 +15,6 @@ public class EventService {
     public EventService(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
     }
-    public UserRepository userRepository() {
-
-    }
     public Event createEvent(Event event){
         return eventRepository.save(event);
     }
@@ -27,14 +24,16 @@ public class EventService {
     public List<Event> getUpcomingEvents(LocalDateTime date){
         return eventRepository.findByDate(date);
     }
-    public Event saveEvent(String title
+    public Event saveEvent(String title,int id
             ,String username,String location,LocalDateTime date){
-        List<Event> event= eventRepository.findEventsByTitle(title);
-        if(event.size()==0) {
+        Event event= eventRepository.findEventById(id);
+        if(event) {
             System.out.print("No events found");
         }
         else{
-            eventRepository.registerForEvent(title,username,location,date);
+
+            event.add(new Event(title,username,));
+            userRepository.registerUser(username,title);
 
         }
 

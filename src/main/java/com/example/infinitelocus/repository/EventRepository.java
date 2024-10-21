@@ -11,6 +11,7 @@ public interface EventRepository extends MongoRepository<Event, String> {
    List<Event> findEventsByUserId(String userId);
    List<Event> findByDate(LocalDateTime date);
    List<Event> findAllEvents();
+   Event findEventById(int id);
    Event registerForEvent(String title,String username,String location, LocalDateTime date);
   // List<Event> findByTitleAndUserId(String title, String userId);
 }

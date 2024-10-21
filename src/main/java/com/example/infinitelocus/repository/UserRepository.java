@@ -9,5 +9,6 @@ import java.util.List;
 
 public interface UserRepository extends MongoRepository<User, String> {
     User findUsersById(String username);
+    User registerUser(String username,String title);
 //    List<Event> findEventsByUser(String username);
 }
