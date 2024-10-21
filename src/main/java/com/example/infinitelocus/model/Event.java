@@ -4,10 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+@Getter
+@Setter
 @Document(collection = "events" )
 @Entity
 public class Event {
@@ -21,5 +26,5 @@ public class Event {
     private LocalDateTime time;
     private int maxRegistration;
     private int currentRegistration=0;
-
+    private List<String> registeredUsers;
 }
