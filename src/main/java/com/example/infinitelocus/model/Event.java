@@ -18,12 +18,12 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int id;
     public String title;
-    private String description;
-    private String location;
+    public String description;
+    public String location;
   //  private String date;
-    private LocalDateTime time;
-    private int maxRegistration;
-    private int currentRegistration=0;
+    public LocalDateTime time;
+    public int maxRegistration;
+    public int currentRegistration=0;
     public List<String> registeredUsers;
 
 }
